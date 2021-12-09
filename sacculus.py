@@ -1,12 +1,12 @@
-n, vol = map(int, input().split())
-res = [] ## pondus, pretium, ratio
-electN = [0] * n
+n, vol = map(int, input().split()) ## number of things, whole space
+res = [] ## things[weight, value, value/weight]
+electN = [0] * n ## if elected
 for i in range(n):
     hpd, hpr = map(int, input().split())
     res.append([hpd, hpr, hpr / hpd])
 res.sort(key=lambda x: x[2], reverse=True)
-mPretium = 0
-pondus, pretium = 0, 0
+mPretium = 0 ## max value
+pondus, pretium = 0, 0 ## current weight, value
 
 def elegere(r):
     global n, vol, res, mPretium, pondus, pretium
